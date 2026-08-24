@@ -9,4 +9,4 @@ Relógio analogico simples
 
 ## Projeto
 
-  Esse projeto busca desenvolver pensamento computacional e exercitar a logica de programação com a linguagem Java, traduzindo conceitos matemáticos como utilização de graus para localizar o ponto x,y dos ponteiros baseado no Localtime.now().
+  Este projeto tem como objetivo desenvolver o pensamento computacional e exercitar a lógica de programação utilizando a linguagem Java. A aplicação traduz conceitos matemáticos, como o uso de ângulos e trigonometria, para calcular as coordenadas (x, y) dos ponteiros de um relógio em tempo real, baseando-se no horário atual obtido via LocalTime.now()
