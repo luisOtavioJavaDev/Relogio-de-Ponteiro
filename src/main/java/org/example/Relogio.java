@@ -11,12 +11,9 @@ public class Relogio extends JPanel {
       int intervalo = 1000;
       Timer timer = new Timer(intervalo, e -> repaint());
       timer.start();
-        this.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent e) {
-                abrirPainelDeCor();
-            }
-        });
+        JButton botaoCor = new JButton("Escolher Cor do Relógio");
+        botaoCor.addActionListener(e -> abrirPainelDeCor());
+        this.add(botaoCor);
     }
 
     @Override
@@ -40,6 +37,12 @@ public class Relogio extends JPanel {
          g.setColor(corDoPonteiro);
          g2d.setStroke(new BasicStroke(espessuraRelogio));
          g.drawOval(xCentro - tamanhoRelogio/2,yCentro - tamanhoRelogio/2,tamanhoRelogio,tamanhoRelogio);
+        for (int i = 1; i <= 12; i++) {
+            double anguloEmRadianosNumeros = Math.toRadians((i * 30) - 90);
+            int xDaPonta = (int) (xCentro + (tamanhoRelogio / 2 * 0.95 * Math.cos(anguloEmRadianosNumeros)));
+            int yDaPonta = (int) (yCentro + (tamanhoRelogio / 2 * 0.95 * Math.sin(anguloEmRadianosNumeros)));
+            g.drawString(String.valueOf(i), xDaPonta, yDaPonta);
+        }
 
         double anguloEmRadianosSegundos = Math.toRadians(anguloSegundos - 90);
         int xPontaSegundos = (int) (xCentro + (tamanhoPonteiroMinutosSegundos * Math.cos(anguloEmRadianosSegundos)));
